@@ -1,284 +1,468 @@
-# 🤖 AI-Powered Customer Support & Service Automation System
+# 🚀 Customer Support AI - Full Stack Web Application
 
-A comprehensive Salesforce solution for intelligent customer support, case management, and AI-driven automation using Agentforce and Prompt Builder.
+> **🎉 Now deployed as a modern web app!**  
+> Converted from Salesforce to **Next.js + MongoDB** with one-click deployment on Vercel.
 
-## 📋 Project Overview
+**Live Demo:** [Deploy to Vercel](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fsud-git%2FCustomer-Support-AI)
 
-This project includes:
+## 📊 Tech Stack
 
-- **6 Custom Objects**: Customer, Merchandise, Order, Case, Knowledge, Inspection
-- **AI Features**: Prompt Builder summaries, Agentforce support suggestions
-- **Automation**: Flows, approvals, routing, notifications
-- **UI**: Lightning App + Record Pages
-- **Security**: Roles, Profiles, Field-Level Security
-- **Apex Classes**: Utility classes for AI integration and automation
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | ⚡ Next.js 14, React 18, Tailwind CSS |
+| **Backend** | 🟢 Node.js, Next.js API Routes |
+| **Database** | 🍃 MongoDB, Mongoose ODM |
+| **Hosting** | 🔷 Vercel (Serverless) |
+| **Version Control** | 🐙 GitHub |
 
-## 🏗️ Project Structure
+## ✨ Features
+
+- **📊 Dashboard** - Real-time analytics and statistics
+- **👥 Customer Management** - CRUD operations with full tracking
+- **📦 Order Management** - Order lifecycle and status tracking
+- **🎫 Support Tickets** - Case management with priority levels
+- **📚 Knowledge Base** - Article management and search
+- **🛍️ Product Catalog** - Inventory and merchandise management
+- **🔍 Quality Inspections** - Inspection reports with scoring
+- **⚡ RESTful API** - Full CRUD endpoints for all modules
+- **🔐 Secure** - Environment variables, validation, CORS-ready
+- **🌐 Global Scale** - CDN, auto-scaling, high availability
+
+## 📁 Project Structure
 
 ```
 Customer-Support-AI/
-├── force-app/
-│   └── main/
-│       └── default/
-│           ├── objects/              # Custom objects (Customer__c, Order__c, etc.)
-│           ├── fields/               # Custom fields for each object
-│           ├── layouts/              # Page layouts
-│           ├── flows/                # Flow definitions
-│           ├── classes/              # Apex classes
-│           ├── prompts/              # Prompt Builder templates
-│           ├── permissionsets/       # Permission sets
-│           └── applications/         # Lightning App definitions
-├── data/                             # Sample data (CSV/JSON)
-├── docs/                             # Documentation
-├── scripts/                          # Deployment scripts
-├── sfdx-project.json                 # SFDX configuration
-├── package.json                      # NPM configuration
-├── .gitignore                        # Git ignore rules
-└── README.md                         # This file
+├── 📁 app/                         # Next.js App Directory
+│   ├── 📁 api/                     # API Routes (Backend)
+│   │   ├── customers/route.js      # Customer CRUD API
+│   │   ├── orders/route.js         # Order CRUD API
+│   │   ├── cases/route.js          # Case CRUD API
+│   │   ├── merchandise/route.js    # Product CRUD API
+│   │   ├── knowledge/route.js      # Knowledge CRUD API
+│   │   └── inspections/route.js    # Inspection CRUD API
+│   ├── 📁 dashboard/               # Dashboard page
+│   ├── 📁 customers/               # Customers page
+│   ├── 📁 orders/                  # Orders page
+│   ├── 📁 cases/                   # Cases page
+│   ├── 📁 merchandise/             # Products page
+│   ├── 📁 knowledge/               # Knowledge base page
+│   ├── 📁 inspections/             # Inspections page
+│   ├── layout.js                   # Root layout + navigation
+│   ├── page.js                     # Home page
+│   └── globals.css                 # Global styles
+├── 📁 models/                      # MongoDB Mongoose Models
+│   ├── Customer.js
+│   ├── Order.js
+│   ├── Case.js
+│   ├── Merchandise.js
+│   ├── Knowledge.js
+│   └── Inspection.js
+├── 📁 lib/
+│   └── db.js                       # MongoDB Connection
+├── 📁 public/                      # Static Assets
+├── 📁 data/                        # Sample Data (CSV)
+├── 📁 docs/                        # Documentation
+├── 📁 scripts/                     # Setup Scripts
+├── 📄 package.json                 # Dependencies
+├── 📄 next.config.js               # Next.js Config
+├── 📄 tailwind.config.js           # Tailwind Config
+├── 📄 vercel.json                  # Vercel Config
+├── 📄 .env.local.example           # Environment Template
+└── 📄 README.md                    # This File
 ```
 
-## 🚀 Quick Start
+## 🚀 Quick Start (5 Minutes)
 
-### Prerequisites
+### Option 1: Deploy to Vercel (Recommended)
 
-- **Salesforce CLI (SFDX)** - [Install here](https://developer.salesforce.com/tools/sfdxcli)
-- **Node.js 18+** - [Install here](https://nodejs.org/)
-- **VS Code** - [Install here](https://code.visualstudio.com/)
-- **Salesforce Org** (Developer, Sandbox, or Production)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fsud-git%2FCustomer-Support-AI)
 
-### Installation Steps
+**Steps:**
+1. Click the button above
+2. Create/connect your GitHub account
+3. Add `MONGODB_URI` environment variable
+4. Click "Deploy"
+5. Your app is live! 🎉
 
-#### 1. Clone/Open This Project in VS Code
+📖 **Full guide:** See [QUICK_START_DEPLOY.md](QUICK_START_DEPLOY.md)
+
+### Option 2: Run Locally
+
+#### Prerequisites
+
+- **Node.js** 18+ - [Download](https://nodejs.org/)
+- **MongoDB** - [Get free cluster](https://www.mongodb.com/cloud/atlas)
+- **Git** - [Download](https://git-scm.com/)
+
+#### Installation
 
 ```bash
-cd c:\Users\sudho\Desktop\Customer-Support-AI
-code .
+# Clone the repository
+git clone https://github.com/sud-git/Customer-Support-AI.git
+cd Customer-Support-AI
+
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.local.example .env.local
+
+# Edit .env.local and add your MongoDB URI
+# MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/database
+
+# Start development server
+npm run dev
 ```
 
-#### 2. Install Dependencies (Optional)
+Open **[http://localhost:3000](http://localhost:3000)** in your browser! 🚀
+
+## 📚 Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [WEB_APP_README.md](WEB_APP_README.md) | 📖 Complete application guide & API docs |
+| [QUICK_START_DEPLOY.md](QUICK_START_DEPLOY.md) | ⚡ 30-minute deployment guide |
+| [GITHUB_VERCEL_SETUP.md](GITHUB_VERCEL_SETUP.md) | 📋 Step-by-step setup instructions |
+| [WEB_APP_DEPLOYMENT_COMPLETE.md](WEB_APP_DEPLOYMENT_COMPLETE.md) | ✅ Completion summary & roadmap |
+
+## 🔌 API Endpoints
+
+All endpoints are **production-ready** with full CRUD operations:
+
+### Customers
+```
+GET    /api/customers              # List all customers
+POST   /api/customers              # Create customer
+PUT    /api/customers?id=<id>      # Update customer
+DELETE /api/customers?id=<id>      # Delete customer
+```
+
+### Orders
+```
+GET    /api/orders                 # List all orders
+POST   /api/orders                 # Create order
+PUT    /api/orders?id=<id>         # Update order
+DELETE /api/orders?id=<id>         # Delete order
+```
+
+### Support Cases
+```
+GET    /api/cases                  # List all cases
+POST   /api/cases                  # Create case
+PUT    /api/cases?id=<id>          # Update case
+DELETE /api/cases?id=<id>          # Delete case
+```
+
+### Products / Merchandise
+```
+GET    /api/merchandise            # List all products
+POST   /api/merchandise            # Create product
+PUT    /api/merchandise?id=<id>    # Update product
+DELETE /api/merchandise?id=<id>    # Delete product
+```
+
+### Knowledge Base
+```
+GET    /api/knowledge              # List published articles
+POST   /api/knowledge              # Create article
+PUT    /api/knowledge?id=<id>      # Update article
+DELETE /api/knowledge?id=<id>      # Delete article
+```
+
+### Inspections
+```
+GET    /api/inspections            # List inspections
+POST   /api/inspections            # Create inspection
+PUT    /api/inspections?id=<id>    # Update inspection
+DELETE /api/inspections?id=<id>    # Delete inspection
+```
+
+## 🛠️ Available Scripts
 
 ```bash
+npm run dev      # Start development server (port 3000)
+npm run build    # Build for production
+npm start        # Start production server
+npm run lint     # Run ESLint checks
+```
+
+## 🌍 Deployment Options
+
+| Platform | Cost | Setup Time |
+|----------|------|-----------|
+| **Vercel** | Free tier available | 10 minutes |
+| **Railway** | Free tier available | 15 minutes |
+| **Render** | Free tier available | 15 minutes |
+| **AWS** | Pay per use | 20 minutes |
+| **Azure** | Free tier available | 20 minutes |
+
+**Recommended:** [Vercel](https://vercel.com) - Optimized for Next.js, global CDN, auto-deployments.
+
+## 📊 MongoDB Setup
+
+### Free Tier (MongoDB Atlas)
+
+1. **Sign up:** https://www.mongodb.com/cloud/atlas
+2. **Create cluster:** M0 (free tier)
+3. **Create user:** Database credentials
+4. **Get URI:** Connection string
+5. **Use URI:** Paste in `.env.local`
+
+```env
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority
+```
+
+## 🔐 Environment Variables
+
+Create `.env.local` in project root:
+
+```env
+# Required
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/database?retryWrites=true&w=majority
+
+# Optional
+NEXT_PUBLIC_API_URL=http://localhost:3000
+NODE_ENV=development
+```
+
+## 📦 Features & Modules
+
+### 1. Dashboard
+- Real-time statistics
+- Quick navigation
+- System overview
+
+### 2. Customer Management
+- Create/edit customer profiles
+- Contact information tracking
+- Customer status management
+- Full history
+
+### 3. Order Management  
+- Complete order lifecycle
+- Item tracking
+- Shipping information
+- Status updates
+
+### 4. Support Tickets
+- Case creation & resolution
+- Priority assignment
+- Knowledge base linking
+
+
+## 🧪 Testing API Locally
+
+### Using cURL
+
+```bash
+# Get all customers
+curl http://localhost:3000/api/customers
+
+# Create a customer
+curl -X POST http://localhost:3000/api/customers \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "555-1234",
+    "status": "Active"
+  }'
+
+# Get single customer
+curl http://localhost:3000/api/customers?id=CUSTOMER_ID
+
+# Update customer
+curl -X PUT http://localhost:3000/api/customers?id=CUSTOMER_ID \
+  -H "Content-Type: application/json" \
+  -d '{"status": "Inactive"}'
+
+# Delete customer
+curl -X DELETE http://localhost:3000/api/customers?id=CUSTOMER_ID
+```
+
+### Using Postman
+
+1. Import the API into [Postman](https://www.postman.com/)
+2. Set `{{MONGODB_ID}}` variables in your environment
+3. Test each endpoint
+4. Save your collection for team sharing
+
+## 🚀 Continuous Integration & Deployment
+
+### Auto-Deploy with Vercel
+
+Every push to `main` branch automatically:
+1. Builds your application
+2. Runs tests
+3. Deploys to production
+4. Shows build status
+
+No manual steps needed! ✨
+
+### Manual Deployment
+
+```bash
+# Build locally
+npm run build
+
+# Start production server
+npm start
+
+# Test production build locally
+# Should be similar to deployment
+```
+
+## 🔧 Development Workflow
+
+### Adding a New Feature
+
+1. **Create a new branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make changes**
+   - Update models if needed
+   - Create/modify API routes
+   - Add/update components
+
+3. **Test locally**
+   ```bash
+   npm run dev
+   # Visit http://localhost:3000
+   ```
+
+4. **Commit and push**
+   ```bash
+   git add .
+   git commit -m "feature: Add your feature description"
+   git push origin feature/your-feature-name
+   ```
+
+5. **Create Pull Request on GitHub**
+   - Describe your changes
+   - Link related issues
+   - Request review
+
+6. **Merge to main**
+   - Code review approved
+   - Vercel auto-deploys
+
+### Code Style
+
+- Use **Prettier** for formatting
+- Follow **React best practices**
+- Use **functional components**
+- Keep API routes simple and focused
+
+## 🐛 Troubleshooting
+
+### "Cannot connect to MongoDB"
+```
+✓ Check MONGODB_URI in .env.local
+✓ Verify connection string format
+✓ Whitelist your IP in MongoDB Atlas
+✓ Restart development server
+```
+
+### "Port 3000 already in use"
+```bash
+# Windows
+netstat -ano | findstr :3000
+taskkill /PID <PID> /F
+
+# macOS/Linux
+lsof -ti:3000 | xargs kill -9
+```
+
+### "npm install fails"
+```bash
+# Clear npm cache
+npm cache clean --force
+
+# Delete node_modules and lock file
+rm -rf node_modules package-lock.json
+
+# Reinstall
 npm install
 ```
 
-#### 3. Authorize Your Salesforce Org
+### "Vercel deployment fails"
+- Check build logs in Vercel dashboard
+- Verify all environment variables are set
+- Run `npm run build` locally to test
 
-```bash
-sfdx force:auth:web:login --setalias MyOrg --instanceurl https://login.salesforce.com
-```
+### "API returns 500 error"
+- Check MongoDB connection
+- View server logs in terminal
+- Verify data format matches schema
 
-**For Sandbox:**
-```bash
-sfdx force:auth:web:login --setalias MySandbox --instanceurl https://test.salesforce.com
-```
+## 📚 Learning Resources
 
-#### 4. Set Default Org (Optional)
+### Next.js
+- [Next.js Official Docs](https://nextjs.org/docs)
+- [React Patterns](https://reactpatterns.com/)
+- [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)
 
-```bash
-sfdx config:set defaultusername=MyOrg
-```
+### MongoDB & Mongoose
+- [MongoDB Documentation](https://docs.mongodb.com/)
+- [Mongoose Guide](https://mongoosejs.com/docs/guide.html)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
 
-#### 5. Verify Connection
+### Tailwind CSS
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Component Library](https://tailwindui.com/)
+- [Utility Classes](https://tailwindcss.com/docs/utility-first)
 
-```bash
-sfdx force:org:display --targetusername=MyOrg
-```
+### Vercel
+- [Vercel Docs](https://vercel.com/docs)
+- [Deployment Guide](https://vercel.com/docs/concepts/deployments/overview)
+- [Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables)
 
-#### 6. Deploy Project to Salesforce
+## 🤝 Contributing
 
-```bash
-sfdx force:source:push --targetusername=MyOrg
-```
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Commit your changes** (`git commit -m 'Add amazing feature'`)
+4. **Push to the branch** (`git push origin feature/amazing-feature`)
+5. **Open a Pull Request**
 
-#### 7. Open Salesforce Org
+## 📞 Support
 
-```bash
-sfdx force:org:open --targetusername=MyOrg
-```
+- **Documentation:** Check guides in repository
+- **Issues:** [GitHub Issues](https://github.com/sud-git/Customer-Support-AI/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/sud-git/Customer-Support-AI/discussions)
 
----
+## 📄 License
 
-## 📦 Phase Breakdown
+MIT License - feel free to use this project for personal or commercial purposes.
 
-### **Phase 1: Planning** ✅ (Completed)
+## 🎯 Roadmap
 
-- Project structure
-- Object relationships
-- Security model
+- [ ] Authentication & user roles
+- [ ] Email notifications
+- [ ] PDF report generation
+- [ ] Advanced search & filtering
+- [ ] Real-time updates with WebSockets
+- [ ] Mobile app (React Native)
+- [ ] Admin analytics dashboard
+- [ ] AI chat integration
+- [ ] Multi-language support
+- [ ] Dark mode
 
-### **Phase 2: Backend Configuration** (IN PROGRESS)
+## ✨ Acknowledgments
 
-- [x] Step 1: Custom Objects
-- [ ] Step 2: Validation Rules
-- [ ] Step 3: Field Dependencies
-
-**This Step 1 Includes:**
-- Customer__c
-- Merchandise__c
-- Order__c
-- Case__c
-- Knowledge__c
-- Inspection__c
-
-### **Phase 3: AI Setup** (Upcoming)
-
-- Prompt Builder templates
-- Agentforce routing rules
-- AI-powered summaries
-
-### **Phase 4: Automation** (Upcoming)
-
-- Flows for case routing
-- Approval processes
-- Notification workflows
-
-### **Phase 5: UI Development** (Upcoming)
-
-- Lightning App
-- Record Pages
-- Dashboards
-
-### **Phase 6: Security & Testing** (Upcoming)
-
-- Permission sets
-- Role hierarchy
-- Test data
-
-### **Phase 7: Deployment** (Upcoming)
-
-- Release management
-- Org sync
+- Built with [Next.js](https://nextjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Database powered by [MongoDB](https://www.mongodb.com/)
+- Deployed on [Vercel](https://vercel.com/)
 
 ---
 
-## 📝 Naming Conventions
+**Made with ❤️ by the Customer Support AI Team**
 
-| Element | Pattern | Example |
-|---------|---------|---------|
-| Custom Object | `ObjectName__c` | `Customer__c` |
-| Custom Field | `FieldName__c` | `CustomerName__c` |
-| Relationship | `ObjectLink__c` | `CustomerLink__c` |
-| Apex Class | `PascalCase` | `CaseAutoResponder` |
-| Flow | `snake_case` | `case_auto_response_flow` |
-| Permission Set | `PascalCase` | `CustomerSupportAgent` |
+⭐ If you find this project helpful, please star it on GitHub!
 
----
-
-## 🔗 Object Relationships
-
-```
-Customer (Main)
-├── ← Orders (1:M via Master-Detail)
-└── ← Cases (1:M via Lookup)
-
-Order
-├── → Customer (Master-Detail)
-└── ← Inspections (1:M via Master-Detail)
-
-Case
-├── → Customer (Lookup)
-└── → Knowledge (Lookup)
-
-Merchandise
-└── (Standalone - referenced in Orders via Junction)
-
-Inspection
-└── → Order (Master-Detail)
-
-Knowledge
-└── (Standalone - linked to Cases)
-```
-
----
-
-## 📊 Key Fields by Object
-
-### Customer__c
-- `CustomerName__c` (Text, Required)
-- `CustomerEmail__c` (Email, Required)
-- `CustomerPhone__c` (Phone)
-- `CustomerStatus__c` (Picklist: Active, Inactive, Suspended)
-- `TotalOrders__c` (Number)
-- `TotalSpend__c` (Currency)
-
-### Merchandise__c
-- `MerchandiseName__c` (Text, Required)
-- `SKU__c` (Text, External ID, Unique)
-- `Category__c` (Picklist)
-- `Price__c` (Currency)
-- `Stock__c` (Number)
-- `IsActive__c` (Checkbox)
-
-### Order__c
-- `CustomerLink__c` (Master-Detail → Customer)
-- `OrderDate__c` (Date)
-- `OrderStatus__c` (Picklist: Pending, Processing, Shipped, Delivered, Cancelled)
-- `TotalAmount__c` (Currency)
-- `ShippingAddress__c` (Text Area)
-- `TrackingNumber__c` (Text)
-
-### Case__c
-- `CustomerLink__c` (Lookup → Customer)
-- `CaseTitle__c` (Text, Required)
-- `CaseDescription__c` (Text Area, Required)
-- `CaseType__c` (Picklist: Technical, Billing, Product, Complaint, Feature)
-- `Priority__c` (Picklist: Low, Medium, High, Critical)
-- `Status__c` (Picklist: New, In Progress, Waiting, Resolved, Closed)
-- `AI_Summary__c` (Text Area - Generated by Prompt Builder)
-- `AssignedAgent__c` (Lookup → User)
-- `RelatedKnowledge__c` (Lookup → Knowledge)
-
-### Knowledge__c
-- `ArticleTitle__c` (Text, Required)
-- `ArticleContent__c` (Long Text, Required)
-- `Topic__c` (Picklist)
-- `IsPublished__c` (Checkbox)
-
-### Inspection__c
-- `OrderLink__c` (Master-Detail → Order)
-- `InspectionDate__c` (Date)
-- `InspectionStatus__c` (Picklist: Passed, Failed, Pending)
-- `QualityScore__c` (Number)
-- `AI_Summary__c` (Text Area)
-- `Comments__c` (Text Area)
-
----
-
-## 🤖 AI Features
-
-### Prompt Builder Templates
-
-1. **Case Summary Generator**
-   - Input: Case Description, Case Type
-   - Output: Concise AI-generated summary + suggested resolution path
-
-2. **Inspection Summary Generator**
-   - Input: Inspection details, Quality Score
-   - Output: AI recommendations for quality improvements
-
-3. **Knowledge Article Generator**
-   - Input: Common case patterns
-   - Output: Suggested knowledge articles
-
-### Agentforce Routing
-
-- Route high-priority cases to specialized agents
-- Route technical cases to technical team
-- Auto-escalate based on customer sentiment
-
----
-
-## 🔐 Security Model
-
-### Permission Sets
-
-1. **Customer Support Agent**
-   - Full access to Cases
-   - Read access to Customers, Orders
-   - Write access to Knowledge
-
-2. **Support Manager**
-   - Full access to all objects
    - Approval workflow access
    - Report generation
 
