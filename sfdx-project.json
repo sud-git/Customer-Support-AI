@@ -10,8 +10,7 @@
     }
   ],
   "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "60.0",
+  "oauthLocalPort": 3030,
   "plugins": {
     "sfProjectCommon": {},
     "sfProjectDefault": {}

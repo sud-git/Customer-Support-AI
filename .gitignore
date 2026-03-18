@@ -47,6 +47,19 @@ __tests__/
 # Deployment artifacts
 dist/
 build/
+.next/
+out/
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Testing
+/coverage
+.nyc_output/
 
 # Temporary files
 *.tmp
