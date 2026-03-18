@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM_DEFAULT</compactLayoutAssignment>
+    <description>Support cases and tickets for AI-powered resolution</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CustomerLink__c</fullName>
+        <description>Link to customer</description>
+        <externalId>false</externalId>
+        <label>Customer</label>
+        <referenceTo>Customer__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CaseTitle__c</fullName>
+        <description>Issue title/subject</description>
+        <externalId>false</externalId>
+        <label>Case Title</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>CaseDescription__c</fullName>
+        <description>Detailed case description</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>4000</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>7</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CaseType__c</fullName>
+        <description>Category of support issue</description>
+        <externalId>false</externalId>
+        <label>Case Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Technical Issue</fullName>
+                <default>false</default>
+                <label>Technical Issue</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing Inquiry</fullName>
+                <default>false</default>
+                <label>Billing Inquiry</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Question</fullName>
+                <default>false</default>
+                <label>Product Question</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+                <label>Complaint</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+                <label>Feature Request</label>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <description>Case priority level</description>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+                <label>Low</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>true</default>
+                <label>Medium</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+                <label>High</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Critical</fullName>
+                <default>false</default>
+                <label>Critical</label>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Resolution status</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting for Customer</fullName>
+                <default>false</default>
+                <label>Waiting for Customer</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resolved</fullName>
+                <default>false</default>
+                <label>Resolved</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>AssignedAgent__c</fullName>
+        <description>Assigned support agent</description>
+        <externalId>false</externalId>
+        <label>Assigned Agent</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Resolution__c</fullName>
+        <description>Solution provided</description>
+        <externalId>false</externalId>
+        <label>Resolution</label>
+        <length>4000</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>7</visibleLines>
+    </fields>
+    <fields>
+        <fullName>AISummary__c</fullName>
+        <description>AI-generated case summary</description>
+        <externalId>false</externalId>
+        <label>AI Summary</label>
+        <length>4000</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RelatedKnowledge__c</fullName>
+        <description>Link to knowledge article</description>
+        <externalId>false</externalId>
+        <label>Related Knowledge</label>
+        <referenceTo>Knowledge__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CreatedDate__c</fullName>
+        <description>Case creation date</description>
+        <externalId>false</externalId>
+        <label>Creation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ResolvedDate__c</fullName>
+        <description>Date case was resolved</description>
+        <externalId>false</externalId>
+        <label>Resolved Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <label>Case</label>
+    <listViews>
+        <fullName>AllCases</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>OpenCases</fullName>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Case__c.Status__c</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </filters>
+        <filters>
+            <field>Case__c.Status__c</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </filters>
+        <label>Open Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>HighPriorityCases</fullName>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Case__c.Priority__c</field>
+            <operation>equals</operation>
+            <value>High</value>
+        </filters>
+        <filters>
+            <field>Case__c.Priority__c</field>
+            <operation>equals</operation>
+            <value>Critical</value>
+        </filters>
+        <label>High Priority Cases</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CS-{00000000}</displayFormat>
+        <label>Case Number</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Cases</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

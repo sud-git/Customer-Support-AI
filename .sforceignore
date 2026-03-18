@@ -1,0 +1,11 @@
+# Patterns to ignore during source push/pull
+# More information: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev_guide.meta/sfdx_dev_guide/sfdx_dev_source_ignore.htm
+
+package.xml
+
+# LWC configuration files
+**/jsconfig.json
+**/.eslintrc.json
+
+# LWC Jest
+**/__tests__/**

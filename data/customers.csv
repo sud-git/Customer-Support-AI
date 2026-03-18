@@ -1,0 +1,11 @@
+Name,Email,Phone,City,State,Country,Status,Type
+CUST-00001,John Smith,john.smith@email.com,555-0101,New York,NY,USA,Active,Personal
+CUST-00002,Sarah Johnson,sarah.johnson@email.com,555-0102,Los Angeles,CA,USA,Active,Personal
+CUST-00003,Michael Chen,michael.chen@email.com,555-0103,Chicago,IL,USA,Active,Business
+CUST-00004,Emily Rodriguez,emily.rodriguez@email.com,555-0104,Houston,TX,USA,Active,Personal
+CUST-00005,David Kim,david.kim@email.com,555-0105,Phoenix,AZ,USA,Active,Business
+CUST-00006,Jessica Garcia,jessica.garcia@email.com,555-0106,Philadelphia,PA,USA,Inactive,Personal
+CUST-00007,Robert Martinez,robert.martinez@email.com,555-0107,San Antonio,TX,USA,Active,Business
+CUST-00008,Lisa Anderson,lisa.anderson@email.com,555-0108,San Diego,CA,USA,Active,Personal
+CUST-00009,James Taylor,james.taylor@email.com,555-0109,Dallas,TX,USA,Active,Personal
+CUST-00010,Maria Thompson,maria.thompson@email.com,555-0110,San Jose,CA,USA,Suspended,Business

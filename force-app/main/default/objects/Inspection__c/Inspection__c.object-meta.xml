@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM_DEFAULT</compactLayoutAssignment>
+    <description>Order inspection and QA tracking</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>OrderLink__c</fullName>
+        <description>Link to Order</description>
+        <externalId>false</externalId>
+        <label>Order</label>
+        <referenceTo>Order__c</referenceTo>
+        <relationshipLabel>Inspections</relationshipLabel>
+        <relationshipName>Inspections</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>InspectionDate__c</fullName>
+        <description>Date inspection was performed</description>
+        <externalId>false</externalId>
+        <label>Inspection Date</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>InspectionStatus__c</fullName>
+        <description>Result of inspection</description>
+        <externalId>false</externalId>
+        <label>Inspection Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Passed</fullName>
+                <default>false</default>
+                <label>Passed</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failed</fullName>
+                <default>false</default>
+                <label>Failed</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Review</fullName>
+                <default>true</default>
+                <label>Pending Review</label>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>QualityScore__c</fullName>
+        <description>Quality score (0-100)</description>
+        <externalId>false</externalId>
+        <label>Quality Score</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>AISummary__c</fullName>
+        <description>AI-generated inspection summary</description>
+        <externalId>false</externalId>
+        <label>AI Summary</label>
+        <length>2000</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>Inspection notes and comments</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>2000</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>InspectedBy__c</fullName>
+        <description>User who performed inspection</description>
+        <externalId>false</externalId>
+        <label>Inspected By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Inspections</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DefectsFound__c</fullName>
+        <description>Number of defects found</description>
+        <externalId>false</externalId>
+        <label>Defects Found</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+    </fields>
+    <label>Inspection</label>
+    <listViews>
+        <fullName>AllInspections</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Inspections</label>
+    </listViews>
+    <listViews>
+        <fullName>FailedInspections</fullName>
+        <booleanFilter>1</booleanFilter>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Inspection__c.InspectionStatus__c</field>
+            <operation>equals</operation>
+            <value>Failed</value>
+        </filters>
+        <label>Failed Inspections</label>
+    </listViews>
+    <nameField>
+        <displayFormat>INS-{00000000}</displayFormat>
+        <label>Inspection ID</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Inspections</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

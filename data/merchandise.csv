@@ -1,0 +1,21 @@
+SKU,Product Name,Category,Price,Stock,Supplier,Minimum Stock Level
+SKU001,iPhone 14 Pro,Electronics,999.99,45,Apple,10
+SKU002,Samsung Galaxy S23,Electronics,899.99,38,Samsung,10
+SKU003,AirPods Pro,Electronics,249.99,82,Apple,15
+SKU004,Echo Dot,Electronics,49.99,120,Amazon,20
+SKU005,Wireless Keyboard,Electronics,129.99,55,Logitech,10
+SKU006,USB-C Cable,Electronics,19.99,200,Generic,30
+SKU007,Winter Jacket,Clothing,149.99,25,Fashion Co,5
+SKU008,Running Shoes,Clothing,89.99,40,Nike,8
+SKU009,Cotton T-Shirt,Clothing,29.99,150,Basic Apparel,20
+SKU010,Jeans,Clothing,59.99,60,Denim Co,10
+SKU011,Desk Lamp,Home,39.99,35,Lighting Inc,8
+SKU012,Throw Pillow,Home,24.99,100,Home Decor Co,15
+SKU013,Coffee Maker,Home,89.99,20,Kitchen Appliances,5
+SKU014,Bedding Set,Home,119.99,15,Bed Bath,3
+SKU015,Yoga Mat,Sports,34.99,70,Fitness Gear,10
+SKU016,Dumbbells Set,Sports,149.99,30,Fitness Gear,5
+SKU017,Resistance Bands,Sports,24.99,100,Fitness Gear,20
+SKU018,Water Bottle,Sports,29.99,200,Outdoor Brands,30
+SKU019,Tennis Racket,Sports,199.99,12,Sports Equipment,3
+SKU020,Bicycle Helmet,Sports,59.99,45,Safety First,10

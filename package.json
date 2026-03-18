@@ -1,0 +1,28 @@
+{
+  "name": "customer-support-ai",
+  "version": "1.0.0",
+  "description": "AI-Powered Customer Support & Service Automation in Salesforce",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "deploy": "sfdx force:source:push",
+    "pull": "sfdx force:source:pull",
+    "auth": "sfdx force:auth:web:login",
+    "org:open": "sfdx force:org:open"
+  },
+  "keywords": [
+    "salesforce",
+    "ai",
+    "customer-support",
+    "automation",
+    "agentforce"
+  ],
+  "author": "Salesforce Architect",
+  "license": "MIT",
+  "devDependencies": {
+    "@salesforce/cli": "^2.0.0",
+    "@salesforce/plugin-deploy-retrieve": "^1.0.0",
+    "@salesforce/plugin-source": "^2.0.0",
+    "jest": "^29.0.0"
+  }
+}

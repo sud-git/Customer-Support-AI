@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM_DEFAULT</compactLayoutAssignment>
+    <description>Knowledge base articles for customer support</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ArticleTitle__c</fullName>
+        <description>Knowledge article title</description>
+        <externalId>false</externalId>
+        <label>Article Title</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ArticleContent__c</fullName>
+        <description>Article body content</description>
+        <externalId>false</externalId>
+        <label>Article Content</label>
+        <length>32000</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Topic__c</fullName>
+        <description>Article topic/category</description>
+        <externalId>false</externalId>
+        <label>Topic</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Product Setup</fullName>
+                <default>false</default>
+                <label>Product Setup</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Troubleshooting</fullName>
+                <default>false</default>
+                <label>Troubleshooting</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing FAQ</fullName>
+                <default>false</default>
+                <label>Billing FAQ</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Returns &amp; Refunds</fullName>
+                <default>false</default>
+                <label>Returns &amp; Refunds</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shipping &amp; Delivery</fullName>
+                <default>false</default>
+                <label>Shipping &amp; Delivery</label>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>IsPublished__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Published for use in Agentforce</description>
+        <externalId>false</externalId>
+        <label>Published</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CreatedBy__c</fullName>
+        <description>Author of article</description>
+        <externalId>false</externalId>
+        <label>Author</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Knowledge</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Keywords__c</fullName>
+        <description>Keywords for search optimization</description>
+        <externalId>false</externalId>
+        <label>Keywords</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>ViewCount__c</fullName>
+        <description>Number of times article has been viewed</description>
+        <externalId>false</externalId>
+        <label>View Count</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Helpful__c</fullName>
+        <description>Times article marked as helpful</description>
+        <externalId>false</externalId>
+        <label>Helpful Count</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+    </fields>
+    <label>Knowledge</label>
+    <listViews>
+        <fullName>AllArticles</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Articles</label>
+    </listViews>
+    <listViews>
+        <fullName>PublishedArticles</fullName>
+        <booleanFilter>1</booleanFilter>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Knowledge__c.IsPublished__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Published Articles</label>
+    </listViews>
+    <nameField>
+        <displayFormat>KB-{00000000}</displayFormat>
+        <label>Article ID</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Knowledge</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

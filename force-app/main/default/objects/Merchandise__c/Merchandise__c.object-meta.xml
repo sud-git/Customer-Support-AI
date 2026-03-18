@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM_DEFAULT</compactLayoutAssignment>
+    <description>Product/Merchandise catalog for order management</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>MerchandiseName__c</fullName>
+        <description>Product name</description>
+        <externalId>false</externalId>
+        <label>Product Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SKU__c</fullName>
+        <description>Stock Keeping Unit - unique product identifier</description>
+        <externalId>true</externalId>
+        <label>SKU</label>
+        <length>50</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <description>Product category</description>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+                <label>Electronics</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clothing</fullName>
+                <default>false</default>
+                <label>Clothing</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home</fullName>
+                <default>false</default>
+                <label>Home</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sports</fullName>
+                <default>false</default>
+                <label>Sports</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Price__c</fullName>
+        <description>Unit price</description>
+        <externalId>false</externalId>
+        <label>Price</label>
+        <precision>10</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Stock__c</fullName>
+        <description>Current stock quantity</description>
+        <externalId>false</externalId>
+        <label>Stock Quantity</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Product description</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>2000</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Is product active for sale</description>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MinStock__c</fullName>
+        <description>Minimum stock threshold</description>
+        <externalId>false</externalId>
+        <label>Minimum Stock Level</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Supplier__c</fullName>
+        <description>Product supplier name</description>
+        <externalId>false</externalId>
+        <label>Supplier</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <label>Merchandise</label>
+    <listViews>
+        <fullName>AllProducts</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Products</label>
+    </listViews>
+    <listViews>
+        <fullName>LowStock</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Merchandise__c.IsActive__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Merchandise__c.Stock__c</field>
+            <operation>lessThan</operation>
+            <value>10</value>
+        </filters>
+        <label>Low Stock</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PRDT-{00000}</displayFormat>
+        <label>Product ID</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Merchandise</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

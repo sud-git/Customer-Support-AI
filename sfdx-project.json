@@ -1,0 +1,19 @@
+{
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "60.0",
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true,
+      "package": "CustomerSupportAI",
+      "versionNumber": "1.0.0.0"
+    }
+  ],
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "60.0",
+  "plugins": {
+    "sfProjectCommon": {},
+    "sfProjectDefault": {}
+  }
+}

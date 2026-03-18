@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM_DEFAULT</compactLayoutAssignment>
+    <description>Stores customer information for AI-powered support system</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CustomerName__c</fullName>
+        <description>Full name of customer</description>
+        <externalId>false</externalId>
+        <label>Customer Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomerEmail__c</fullName>
+        <description>Primary email address</description>
+        <externalId>true</externalId>
+        <label>Email</label>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Email</type>
+    </fields>
+    <fields>
+        <fullName>CustomerPhone__c</fullName>
+        <description>Customer phone number</description>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>CustomerStatus__c</fullName>
+        <description>Customer status tracking</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>true</default>
+                <label>Active</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+                <label>Inactive</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+                <label>Suspended</label>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <description>Customer city</description>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <description>Customer state or province</description>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <description>Customer country</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>TotalOrders__c</fullName>
+        <description>Total orders placed by customer</description>
+        <externalId>false</externalId>
+        <label>Total Orders</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>TotalSpend__c</fullName>
+        <description>Total amount spent</description>
+        <externalId>false</externalId>
+        <label>Total Spend</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CustomerType__c</fullName>
+        <description>Type of customer</description>
+        <externalId>false</externalId>
+        <label>Customer Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Personal</fullName>
+                <default>true</default>
+                <label>Personal</label>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business</fullName>
+                <default>false</default>
+                <label>Business</label>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <description>Additional customer notes</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>1000</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>Customer</label>
+    <listViews>
+        <fullName>AllCustomers</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Customers</label>
+    </listViews>
+    <listViews>
+        <fullName>ActiveCustomers</fullName>
+        <booleanFilter>1</booleanFilter>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Customer__c.CustomerStatus__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <label>Active Customers</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CUST-{00000}</displayFormat>
+        <label>Customer ID</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Customers</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>PersonalCustomer</fullName>
+        <active>true</active>
+        <description>Individual customer</description>
+        <label>Personal Customer</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>BusinessCustomer</fullName>
+        <active>true</active>
+        <description>Business/Corporate customer</description>
+        <label>Business Customer</label>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

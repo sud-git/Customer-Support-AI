@@ -1,0 +1,58 @@
+# SFDX Files
+.sfdx/
+.sf/
+
+# Node modules
+node_modules/
+npm-debug.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Salesforce Cache
+.sfdx/cache/
+.sfdx/orgs/
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS-specific
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE extensions
+*.sublime-workspace
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Jest
+*.test.js
+__tests__/
+
+# Deployment artifacts
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# VSCode workspace
+*.code-workspace
